@@ -1,24 +1,103 @@
-h1 {
-    color: blue;
-    font: { // nested  styles related to the font instead of writing font-family etc write font as a style within a style.      
-        family: Arial, Helvetica, sans-serif;
-        size: 2em;
-        weight: bold;}
+// @import "compass"; // import utilites, typography, css3
+// @import "compass/layout"; // import layouts
+// @import "compass/reset"; // import all resets - a ile to remove all difference between all broswers so all browser defo look the same
+
+
+// ALL VARIABLES UNDER HERE
+
+$font-one: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-two: "Lucida Console", Courier, monospace;
+$green: #228B22;
+$yellow: #fdfd96;
+$red: #800000;
+$orange: orange;
+$grey: rgba(200,200,200, 0.5); // rgb alpha colour a for opacity 0-1
+
+
+// STRINGS - add a string withn the css
+$myString: ' Ants'; //var name and then string
+
+
+// NUMBER
+
+$myNumber: 2em * 2; // we can multiply numbers ect to change the values
+$myNumberTwo: 1em * 2; // we can multiply numbers ect to change the values
+
+//dividing numbers 5/3 isnt a whole number so you can round up to nearest - round(5/3) , ceil(5/3) to the ceiling which is 2, floor(5/3) roun down to next m=number down which is a 1.
+
+
+// BOOLEAN - TRUE OR FALSE
+
+$myBoo: false; // if x is red then ...
+
+
+// LISTS
+
+$myList: one, two, three; // I want list item two etc
+
+// CREATING YOUR OWN FUNCTIONS - and using existinng https://sass-lang.com/documentation/syntax/special-functions
+
+@function myFunction($colour, $alpha){ // a fucntion - calling colour and alpha
+    @return hsla(hue($colour), 50, lightness($colour), $alpha); // change the satuartion of colours with hsla - hue, sat, light and alpha
+    
 }
+
+// MIXINS
+
+@mixin headFont { // use @mixin yourNameHere - use theses to style sections /heaering to be consistent
+    &:after { content:$myString;} // call the string in after title
+    color: myFunction($orange, .9); // using the color function
+    font: { // nested  styles related to the font instead of writing font-family etc write font as a style within a style.      
+        family: $font-one; // using the variable at top for font
+        size: $myNumber; // use var fr maning font size with a number
+        weight: bold;
+    }
+}
+
+@mixin headFontTwo { // use @mixin yourNameHere - use theses to style sections /heaering to be consistent
+    &:after { content:$myString;} // call the string in after title
+    color: myFunction($orange, .9); // using the color function
+    font: { // nested  styles related to the font instead of writing font-family etc write font as a style within a style.      
+        family: $font-two; // using the variable at top for font
+        size: $myNumberTwo; // use var fr maning font size with a number
+        weight: bold;
+    }
+}
+
+
+// MAIN STYLES UNDER HERE ---------------------------------------
+
+h1 {
+    @include headFont; // call your mixin like this
+}
+
+.link {
+    font-family: $font-one; // include var from top
+    background: $yellow; // include var from top
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+// SECTIONS
+
 section { // nested style sheet - everything relates to section
+    
+    font-family: $font-one; // variable for the section font from top
+     
+    // ARTICLES
     article { // another nested section that is article
         h2 {
-            color: red; 
+            @include headFontTwo; // call your mixin like this
            }
        p {
-           color: black;
+           color:  myFunction($green, .7); // saturate color using a function
        }
             &#article-1 { // use the ampersand to add ontop the end of article so it 'article#article' not 'article #article'
-                background-color: yellow;
+                background-color: darken($yellow, 20%); // built in function that we can change the - darken - and percentage of the colour - we can also use - lighten -
             }
             &#article-2 { 
-                a { color: black;
-                    &:hover {color:green;}
+                a { @extend .link ; // extend feature to pull through the  styles for links or something under the section
+                    &:hover {color: $green;}
                     }
             }
             body:hover &#article-2 { 
@@ -26,6 +105,15 @@ section { // nested style sheet - everything relates to section
                    
             }
 
+    }
+    
+    // ASIDE
+    
+    aside {
+        font-family: $font-two; // font var from top
+        p {
+            color:$orange; // colour var from top
+        }
     }
    
 }

@@ -1,1 +1,60 @@
-h1{color:blue;font-family:Arial, Helvetica, sans-serif;font-size:2em;font-weight:bold}section article h2{color:red}section article p{color:black}section article#article-1{background-color:yellow}section article#article-2 a{color:black}section article#article-2 a:hover{color:green}body:hover section article#article-2{background:black}aside p{color:grey}
+h1 {
+  color: rgba(191, 146, 64, 0.9);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+h1:after {
+  content: " Ants";
+}
+
+.link, section article#article-2 a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fdfd96;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+section {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section article h2 {
+  color: rgba(191, 146, 64, 0.9);
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+section article h2:after {
+  content: " Ants";
+}
+
+section article p {
+  color: rgba(43, 130, 43, 0.7);
+}
+
+section article#article-1 {
+  background-color: #fbfb32;
+}
+
+section article#article-2 a:hover {
+  color: #228B22;
+}
+
+body:hover section article#article-2 {
+  background: black;
+}
+
+section aside {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+section aside p {
+  color: orange;
+}
+
+aside p {
+  color: grey;
+}

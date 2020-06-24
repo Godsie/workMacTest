@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Prject</title>
+
+    <style>
+        body {
+        background-color:black;
+        margin: 50px auto;
+        text-align: center;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 600px;
+    }
+        .formControl, .name{
+            font-size: 1.5em;
+            padding: 20px;
+            color:#fff;
+            background-color: grey;
+            border: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 25px;;
+        }
+        h1 {
+        font-size: 40px;
+        line-height: 1.2em;
+        }
+        .btn{
+            padding: 30px 60px;
+            color: white;
+            background-color: blue;
+            border:none;
+            font-size: 40px;line-height: 1.2em;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: grey;
+        }
+        hr {
+            margin: 100px 0;;
+        }
+    </style>
+    
+    </head>
+    <body>
+
+<!-- EVENTS AND FUNCTION PROJECT CALCULATOR / ADD A VALUE TO A NUMBER -->
+
+  <h1>This is a crap header </h1>
+  <span style="display: block; margin-bottom: 15px;">Give it a go</span> <!--FIRST H1-->
+  <input class="formControl" type="number" value="0"> <!--FIRST SPAN-->
+  <br><br>
+  <button class="btn" type="button" onclick="submitAge()" >Submit Age</button>
+
+  <h1>In a decade will be <span style="font-size: 80px; display: block; line-height: 1.5em;">?</span> years old.</h1> <!-- SECOND H1 and SPAN -->
+  
+  <hr>
+
+  <ul style="text-align: left;"> <!-- GET INNTEXT VIA LIST NUMBER-->
+      <li>Number 1</li>
+      <li>Number 2</li>
+      <li>Number 3</li>
+      <li>Number 4</li>
+      <li>Number 5</li>
+      <li>Number 6</li>
+      <li>Number 7</li>
+  </ul>
+
+
+<script>
+
+var decade = 10; // amount to be added to age
+var h1 = document.querySelectorAll('h1') [0]; // get the first H1 of the document to change text
+    h1.innerText = 'Hello, enter your age below and well tell you how old you will be in a decade...'; // change the text to a new message
+var li = document.querySelectorAll('li');
+    li[0].innerText = 'This is a list';
+    li[3].innerText = 'This is the third element of a list';
+    li[6].innerHTML = '<a href="#">This is inner html text and link</a>';
+
+function submitAge(){ // create a function for the onclick="submitAge()"
+    var input = document.querySelector('.formControl'); // collect the user input .class
+    var value = Number(input.value); // assign input ad value and call it a number - not a string
+    var totalValue = value + decade; // add the two values together
+
+    // Query the selectors for span and h1
+    var span = document.querySelectorAll('span') [1];  // Query second span of document
+    span.innerText = totalValue; // inserts the total value 
+}
+    </script>
+
+<hr>
+<!--END EVENTS AND FUNCTION PROJECT CALCULATOR / ADD A VALUE TO A NUMBER -->
+
+
+
+
+<!-- EVENTS AND FUNCTION/IF STATEMENTs ADD NAME TO SENTENCE -->
+
+<h1>Enter your name?</h1>
+<input class="name" type="text" value="Name here">
+<button class="btn" type="button" onclick="submitName()" >Submit Name</button>
+
+<h1></h1>
+
+<script>
+
+function submitName(){ // function for onClick
+    var input = document.querySelector('.name'); // query the input class
+    var name = input.value; // assign value to a variable
+
+    if(name == 'Shelley'){ // create an if statement based on what is inputted
+        var finalSentence = 'Hi ' + name + ' you look fine ;)'; // if name is shelley then this
+    } else {
+        var finalSentence = 'Welcome ' + name + ' to my website!'; // else display this
+    }
+
+    // query the the thrid span selector
+    var h1 = document.querySelectorAll('h1') [3]; // reqest the fourth h1 of the page
+    h1.innerText = finalSentence; // insert the typed name
+}
+
+</script>
+
+<hr>
+
+<!-- END EVENTS AND FUNCTION ADD NAME TO SENTENCE -->
+
+
+
+<!-- GET ELEMNT BY ID -->
+<h2 style="text-decoration: underline;">GETTING ELEMENTS BY ID</h2>
+<h2 id="title"></h2>
+<h3 id="subtitle"></h3>
+
+<script>
+
+function $(id) { // function to target all ids with $
+  return document.getElementById(id) // so we return the get elementById and stor in avr
+}
+
+var myTitle = $('title'); // var for title using function $(myId)
+title.innerText = ' Hello world' // title id innertext
+console.log(title.innerText); // we can also log title to console
+
+var mySubtitle = $('subtitle');
+subtitle.innerText = 'This is my JS test page';
+
+</script>
+
+<hr>
+<!-- END GET ELEMENT BY ID -->
+
+
+
+
+<!-- FUNCTION FOR DOING MATHS EXAMPLE-->
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
